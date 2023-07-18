@@ -130,7 +130,7 @@ tracks:
     release_inc: '1'
     release_repo_url: null
     release_tag: v:{version}
-    ros_distro: humble
+    ros_distro: rolling
     vcs_type: git
     vcs_uri: https://github.com/septentrio-gnss/septentrio_gnss_driver
     version: 1.3.1

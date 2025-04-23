@@ -1,1 +1,1 @@
-{"base": "1c2f339", "parent": "debian/rolling/septentrio_gnss_driver", "previous": "b17b850", "trim": "", "trimbase": ""}
+{"base": "793f3a08cdea", "parent": "debian/kilted/septentrio_gnss_driver", "previous": "2a0dc89257aa", "trim": "", "trimbase": ""}

@@ -446,8 +446,6 @@ tracks:
       :{release_inc} --os-name fedora
     - git-bloom-generate -y rosrpm --prefix release/:{ros_distro} :{ros_distro} -i
       :{release_inc} --os-name rhel
-    - git-bloom-generate -y rosdynrpm --prefix release/:{ros_distro} :{ros_distro}
-      -i :{release_inc} --require-os fedora rhel
     devel_branch: master
     last_release: v1.4.6
     last_version: 1.4.6
@@ -455,7 +453,7 @@ tracks:
     patches: null
     release_inc: '3'
     release_repo_url: null
-    release_tag: v1.4.6
+    release_tag: v1.4.7
     ros_distro: lyrical
     vcs_type: git
     vcs_uri: https://github.com/septentrio-gnss/septentrio_gnss_driver

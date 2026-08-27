@@ -65,8 +65,16 @@
  */
 
 // tf2 includes
+#if __has_include(<tf2_ros/buffer.hpp>)
+#include <tf2_ros/buffer.hpp>
+#else
 #include <tf2_ros/buffer.h>
+#endif
+#if __has_include(<tf2_ros/transform_listener.hpp>)
+#include <tf2_ros/transform_listener.hpp>
+#else
 #include <tf2_ros/transform_listener.h>
+#endif
 // ROSaic includes
 #include <septentrio_gnss_driver/communication/communication_core.hpp>
 

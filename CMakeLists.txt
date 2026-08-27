@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.10)
 project(septentrio_gnss_driver)
 
 ## Compile as C++17
@@ -16,6 +16,9 @@ endif()
 set(WARNFLAGS "-Wall -Wextra -Wpedantic -Wcast-align -Wnon-virtual-dtor -Woverloaded-virtual -Wcast-qual -Wctor-dtor-privacy")
 
 ## System dependencies are found with CMake's conventions
+if(POLICY CMP0167)
+  cmake_policy(SET CMP0167 NEW)
+endif()
 find_package(Boost REQUIRED)
 LIST(APPEND CMAKE_MODULE_PATH "/usr/share/cmake/geographiclib")
 find_package(GeographicLib REQUIRED)
@@ -129,6 +132,7 @@ if(catkin_FOUND)
     ${GeographicLib_LIBRARIES}
   )
   target_compile_definitions(${PROJECT_NAME}_node PUBLIC ROS1)
+  target_compile_features(${PROJECT_NAME}_node PUBLIC cxx_std_17)
  
   # Installation
   install(TARGETS ${PROJECT_NAME}_node
@@ -231,6 +235,7 @@ elseif(ament_cmake_FOUND)
     src/septentrio_gnss_driver/parsers/string_utilities.cpp 
   )
   target_compile_definitions(${library_name} PUBLIC ROS2)
+  target_compile_features(${library_name} PUBLIC cxx_std_17)
   target_include_directories(${library_name} PUBLIC
     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"  
     "$<INSTALL_INTERFACE:include>"
@@ -257,6 +262,11 @@ elseif(ament_cmake_FOUND)
     tf2_ros::tf2_ros
   )
 
+  if(${rosidl_cmake_VERSION} VERSION_GREATER_EQUAL 5.2.0)
+    target_compile_definitions(${library_name} PUBLIC ROS2_VER_N520)
+    target_compile_definitions(${library_name} INTERFACE ROS2_VER_N520)
+  endif()
+
   if(${rosidl_cmake_VERSION} VERSION_LESS 2.5.0)
     rosidl_target_interfaces(${library_name}
     ${PROJECT_NAME} "rosidl_typesupport_cpp")
@@ -264,8 +274,6 @@ elseif(ament_cmake_FOUND)
     rosidl_get_typesupport_target(
     cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
     target_link_libraries(${library_name} "${cpp_typesupport_target}")
-    target_compile_definitions(${library_name} PUBLIC ROS2_VER_N250)
-    target_compile_definitions(${library_name} INTERFACE ROS2_VER_N250)
   endif()
 
   ## executable

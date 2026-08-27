@@ -1,3 +1,26 @@
+## septentrio_gnss_driver (rolling) - 1.4.8-2
+
+The packages in the `septentrio_gnss_driver` repository were released into the `rolling` distro by running `/home/tibor/anaconda3/bin/bloom-release --rosdistro rolling --track rolling septentrio_gnss_driver --edit` on `Thu, 27 Aug 2026 19:40:55 -0000`
+
+The `septentrio_gnss_driver` package was released.
+
+Version of package(s) in repository `septentrio_gnss_driver`:
+
+- upstream repository: https://github.com/septentrio-gnss/septentrio_gnss_driver
+- release repository: https://github.com/ros2-gbp/septentrio_gnss_driver_ros2-release.git
+- rosdistro version: `1.4.7-2`
+- old version: `1.4.8-1`
+- new version: `1.4.8-2`
+
+Versions of tools used:
+
+- bloom version: `0.14.3`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## septentrio_gnss_driver (lyrical) - 1.4.8-1
 
 The packages in the `septentrio_gnss_driver` repository were released into the `lyrical` distro by running `/usr/bin/bloom-release --rosdistro lyrical --track lyrical septentrio_gnss_driver --edit` on `Sat, 01 Aug 2026 09:00:23 -0000`
